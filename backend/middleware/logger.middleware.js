@@ -1,8 +1,8 @@
 const express = require('express');
-const app = express();
-app.use((req, res, next) => {
+
+const loggerMiddleware = ((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
 });
 
-module.exports = app;
+module.exports = loggerMiddleware;
