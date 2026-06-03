@@ -1,9 +1,6 @@
 const Employee = require('../models/Employee.model');
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
 
-dotenv.config();
 
 
 const getAllEmployees = async (req, res) => {

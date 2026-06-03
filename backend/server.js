@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const logger = require('./middleware/logger.middleware');
 const employeeRoutes = require('./routes/employee.routes');
 const authRoutes = require('./routes/auth.routes');
+const attendanceRoutes = require('./routes/attendance.routes');
 const connectDB = require('./config/db');
 
 connectDB();
@@ -16,6 +17,7 @@ app.use(logger);
 
 app.use('/api/employees', employeeRoutes);
 app.use('/api/auth', authRoutes)
+app.use('/api/attendance', attendanceRoutes);
 
 app.get('/', (req, res) => {
     return res.json({

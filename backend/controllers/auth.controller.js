@@ -10,6 +10,7 @@ const loginEmployee = async (req, res) => {
     try{
         const { email, password } = req.body;
         const employee = await Employee.findOne({ email }).select('+password');
+
         if(!employee){
             return res.status(404).json({
                 success: false,
@@ -18,6 +19,7 @@ const loginEmployee = async (req, res) => {
         }
 
         const isMatch = await bcrypt.compare(password, employee.password);
+
         if(!isMatch){
             return res.status(401).json({
                 success: false,
